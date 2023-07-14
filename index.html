@@ -17,15 +17,18 @@
 
     h1 {
       text-align: center;
+      font-size: 35px;
     }
 
     #question {
       margin-bottom: 20px;
+      font-size: 30px;
     }
 
     #choices {
       list-style-type: none;
       padding: 0;
+      font-size: 24px;
     }
 
     #choices li {
@@ -40,6 +43,17 @@
       #choices li {
         display: block;
       }
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
     }
 </style>
 </head>
@@ -137,7 +151,6 @@
       resultElement.innerHTML = `<h2>Your Score: ${score}/${quizData.length}</h2>`;
     }
 
-    // Event listener for submit button click
     submitButton.addEventListener("click", checkAnswer);
 
     showQuestion();
