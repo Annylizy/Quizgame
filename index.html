@@ -2,16 +2,57 @@
 <html>
 <head>
   <title>Quiz Game</title>
+  <style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #question {
+      margin-bottom: 20px;
+    }
+
+    #choices {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #choices li {
+      margin-bottom: 10px;
+    }
+
+    #result {
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      #choices li {
+        display: block;
+      }
+    }
+</style>
 </head>
 <body>
-  <h1>Quiz Game</h1>
-  <div id="question"></div>
-  <ul id="choices"></ul>
-  <button id="submit">Submit</button>
-  <div id="result"></div>
+ <div class="container">
+    <h1>Quiz Game</h1>
+    <div id="question"></div>
+    <ul id="choices"></ul>
+    <button id="submit">Submit</button>
+    <div id="result"></div>
+  </div>
 
   <script>
-    // Quiz data
     const quizData = [
       {
         question: "What is the capital city of France?",
@@ -47,8 +88,7 @@
 
     let currentQuestion = 0;
     let score = 0;
-
-    // Display the current question and choices
+s
     function showQuestion() {
       const question = quizData[currentQuestion];
       questionElement.textContent = question.question;
@@ -67,7 +107,6 @@
       });
     }
 
-    // Check the selected answer and display the next question
     function checkAnswer() {
       const selectedChoice = document.querySelector('input[name="choice"]:checked');
       if (!selectedChoice) {
@@ -90,7 +129,6 @@
       }
     }
 
-    // Display the final result
     function showResult() {
       questionElement.style.display = "none";
       choicesElement.style.display = "none";
@@ -102,7 +140,6 @@
     // Event listener for submit button click
     submitButton.addEventListener("click", checkAnswer);
 
-    // Start the quiz
     showQuestion();
   </script>
 </body>
